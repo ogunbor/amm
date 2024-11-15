@@ -14,15 +14,6 @@ pub struct Initialize<'info> {
     pub mint_x: Box<InterfaceAccount<'info, Mint>>,
     pub mint_y: Box<InterfaceAccount<'info, Mint>>,
     #[account(
-        init,
-        seeds = [b"lp", config.key.as_ref()],
-        bump,
-        payer = initializer,
-        mint::decimals = 6,
-        mint::authority = auth
-    )]
-    pub mint_lp: Box<InterfaceAccount<'info, Mint>>,
-    #[account(
         init, 
         payer = initializer,
         associated_token::mint = mint_x,
